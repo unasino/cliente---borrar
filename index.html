@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recibir Datos</title>
+    <title>Cliente</title>
     <style>
-        /* Tu estilo aquí */
+        /* Estilos (opcional) */
     </style>
 </head>
 <body>
 
-    <h1>Datos Recibidos</h1>
-    <button onclick="receiveData()">Ver Datos</button>
+    <h1>Datos del Servidor</h1>
+
+    <button onclick="viewData()">Ver Datos</button>
     <pre id="data-display"></pre>
 
     <script>
-        function receiveData() {
+        function viewData() {
+            // Este método se llamará cuando se reciba el mensaje
             window.addEventListener('message', (event) => {
-                if (event.origin !== 'https://unasino.github.io/servidor-almacenar---BORRAR/') return; // Reemplaza con el dominio correcto
-                document.getElementById('data-display').textContent = event.data;
+                // Asegúrate de verificar el origen en un entorno real
+                const dataDisplay = document.getElementById('data-display');
+                dataDisplay.textContent = event.data;
             });
         }
     </script>
