@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recibir Datos</title>
+    <style>
+        /* Tu estilo aquí */
+    </style>
+</head>
+<body>
+
+    <h1>Datos Recibidos</h1>
+    <button onclick="receiveData()">Ver Datos</button>
+    <pre id="data-display"></pre>
+
+    <script>
+        function receiveData() {
+            window.addEventListener('message', (event) => {
+                if (event.origin !== 'http://example.com') return; // Reemplaza con el dominio correcto
+                document.getElementById('data-display').textContent = event.data;
+            });
+        }
+    </script>
+
+</body>
+</html>
