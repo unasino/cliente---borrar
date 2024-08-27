@@ -3,27 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cliente</title>
+    <title>Cliente - Recibir Datos</title>
     <style>
-        /* Estilos (opcional) */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #json-output {
+            white-space: pre-wrap;
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: "Courier New", Courier, monospace;
+            overflow-x: auto;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Datos del Servidor</h1>
+    <h1>Cliente - Recibir Datos</h1>
 
-    <button onclick="viewData()">Ver Datos</button>
-    <pre id="data-display"></pre>
+    <button onclick="requestData()">Ver Datos</button>
+
+    <div id="json-output"></div>
+
+    <iframe id="iframe" src="https://unasino.github.io/servidor-almacenar---BORRAR/" style="display:none;"></iframe>
 
     <script>
-        function viewData() {
-            // Este método se llamará cuando se reciba el mensaje
-            window.addEventListener('message', (event) => {
-                // Asegúrate de verificar el origen en un entorno real
-                const dataDisplay = document.getElementById('data-display');
-                dataDisplay.textContent = event.data;
-            });
+        function requestData() {
+            const iframe = document.getElementById('iframe');
+            iframe.contentWindow.postMessage({ type: 'requestData' }, 'https://unasino.github.io');
         }
+
+        window.addEventListener('message', (event) => {
+            if (event.origin === "https://unasino.github.io") { // Verifica que el mensaje provenga de la página correcta
+                if (event.data.type === 'data') {
+                    const jsonData = event.data.payload;
+                    document.getElementById('json-output').textContent = JSON.stringify(JSON.parse(jsonData), null, 2);
+                }
+            }
+        });
     </script>
 
 </body>
