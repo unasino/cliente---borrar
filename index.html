@@ -3,48 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hola Nomas</title>
-    
-    <!-- Metaetiquetas para SEO -->
-    <meta name="description" content="Una página simple que dice 'Hola, nomas'">
-    <meta name="keywords" content="Hola, Nomas, Página simple, Ejemplo">
-    <meta name="author" content="Tu Nombre">
-
-    <!-- Metaetiquetas para compartir en redes sociales -->
-    <meta property="og:title" content="Hola Nomas">
-    <meta property="og:description" content="Visita esta página simple que solo dice 'Hola, nomas'.">
-    <meta property="og:image" content="https://i.ibb.co/C94QFVv/Screenshot-20240902-044058-299.png">
-    <meta property="og:url" content="https://tusitio.com/hola-nomas">
-    <meta property="og:type" content="website">
-
-    <!-- Metaetiquetas para WhatsApp -->
-    <meta property="og:image" content="https://i.ibb.co/C94QFVv/Screenshot-20240902-044058-299.png">
-    <meta name="twitter:card" content="summary_large_image">
-    
-    <!-- CSS -->
+    <title>Mostrar Video de Cloudinary</title>
+    <meta name="description" content="Mira este video interesante sobre el temporizador de cuenta regresiva con música.">
+    <meta property="og:title" content="Video de Cuenta Regresiva con Música">
+    <meta property="og:description" content="Disfruta de un video de cuenta regresiva con música en Cloudinary.">
+    <meta property="og:image" content="URL_de_una_imagen_de_vista_previa.jpg">
+    <meta property="og:video" content="https://res.cloudinary.com/djd5pvdvc/video/upload/v1725570599/Y2meta.app-_1_Minute_Countdown_Timer_with_Music_1_Minuto_Cuenta_regresiva_con_m%C3%BAsica_-_LABOT_--_480p_jvdxvm.mp4">
+    <meta property="og:video:type" content="video/mp4">
+    <meta property="og:video:width" content="640">
+    <meta property="og:video:height" content="360">
+    <meta property="og:url" content="URL_de_tu_página">
     <style>
         body {
             font-family: Arial, sans-serif;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
         }
-
         h1 {
-            color: #333;
-            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        video {
+            max-width: 100%;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
         }
     </style>
 </head>
 <body>
-    <h1>Hola, nomas</h1>
 
-    <!-- JavaScript -->
+    <h1>Video de Cloudinary</h1>
+    
+    <video controls>
+        <source src="https://res.cloudinary.com/djd5pvdvc/video/upload/v1725570599/Y2meta.app-_1_Minute_Countdown_Timer_with_Music_1_Minuto_Cuenta_regresiva_con_m%C3%BAsica_-_LABOT_--_480p_jvdxvm.mp4" type="video/mp4">
+        Tu navegador no soporta el formato de video.
+    </video>
+    
+    <div id="message" class="message"></div>
+
     <script>
-        console.log("Página cargada: Hola, nomas 23");
+        // Puedes usar este espacio para añadir funcionalidades JavaScript si es necesario
     </script>
+
 </body>
 </html>
